@@ -1,0 +1,26 @@
+// Course info schema
+
+name: "Franklin Park",
+
+holes: [{ "number" : 1, "par": 4, "blue": 386, "white": 373, "handicap": 14 }, 
+		{ "number" : 2, "par": 4, "blue": 317, "white": 306, "handicap": 12 }, 
+		{ "number" : 3, "par": 4, "blue": 421, "white": 410, "handicap": 14 }, 
+		{ "number" : 4, "par": 4, "blue": 189, "white": 178, "handicap": 16 }, 
+		{ "number" : 5, "par": 4, "blue": 349, "white": 355, "handicap": 6 }, 
+		{ "number" : 6, "par": 4, "blue": 380, "white": 339, "handicap": 10 }, 
+		{ "number" : 7, "par": 4, "blue": 389, "white": 373, "handicap": 2 }, 
+		{ "number" : 8, "par": 4, "blue": 178, "white": 300, "handicap": 18 }, 
+		{ "number" : 9, "par": 4, "blue": 340, "white": 300, "handicap": 8 }, 
+		{ "number" : 10, "par": 4, "blue": 337, "white": 300, "handicap": 9 }, 
+		{ "number" : 11, "par": 4, "blue": 513, "white": 300, "handicap": 3 }, 
+		{ "number" : 12, "par": 4, "blue": 404, "white": 300, "handicap": 5 }, 
+		{ "number" : 13, "par": 4, "blue": 139, "white": 300, "handicap": 17 }, 
+		{ "number" : 14, "par": 4, "blue": 358, "white": 300, "handicap": 13 }, 
+		{ "number" : 15, "par": 4, "blue": 164, "white": 300, "handicap": 15 }, 
+		{ "number" : 16, "par": 4, "blue": 337, "white": 300, "handicap": 1 }, 
+		{ "number" : 17, "par": 4, "blue": 287, "white": 300, "handicap": 11 }, 
+		{ "number" : 18, "par": 4, "blue": 473, "white": 300, "handicap": 7 }], 
+
+in: 34,
+out: 36,
+tot: 70

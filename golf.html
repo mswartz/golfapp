@@ -1,0 +1,116 @@
+<head>
+  <title>golf</title>
+</head>
+
+<body>
+    {{> hello}}
+	{{> game}}
+</body>
+
+<template name="hello">
+  <h1>Hello World!</h1>
+  {{greeting}}
+</template>
+
+<template name="game">
+	<h1>Game Name</h1>
+
+	<h3>{{course.name}}</h3>
+	<table class="scorecard">
+		<thead>
+			<th>Hole</th>
+			<th>1</th>
+			<th>2</th>
+			<th>3</th>
+			<th>4</th>
+			<th>5</th>
+			<th>6</th>
+			<th>7</th>
+			<th>8</th>
+			<th>9</th>
+			<th>Out</th>
+
+			<th>10</th>
+			<th>11</th>
+			<th>12</th>
+			<th>13</th>
+			<th>14</th>
+			<th>15</th>
+			<th>16</th>
+			<th>17</th>
+			<th>18</th>
+			<th>In</th>
+
+			<th>Tot</th>
+		</thead>
+		<tbody>
+			<td>Blue</td>
+			<td>{{course.hole_1.blue}}</td>
+			<td>{{course.hole_2.blue}}</td>
+			<td>{{course.hole_3.blue}}</td>
+			<td>{{course.hole_4.blue}}</td>
+			<td>{{course.hole_5.blue}}</td>
+			<td>{{course.hole_6.blue}}</td>
+			<td>{{course.hole_7.blue}}</td>
+			<td>{{course.hole_8.blue}}</td>
+			<td>{{course.hole_9.blue}}</td>
+			<td>2949</td>
+
+			<td>{{course.hole_10.blue}}</td>
+			<td>{{course.hole_11.blue}}</td>
+			<td>{{course.hole_12.blue}}</td>
+			<td>{{course.hole_13.blue}}</td>
+			<td>{{course.hole_14.blue}}</td>
+			<td>{{course.hole_15.blue}}</td>
+			<td>{{course.hole_16.blue}}</td>
+			<td>{{course.hole_17.blue}}</td>
+			<td>{{course.hole_18.blue}}</td>
+			<td>3012</td>
+
+			<td>5961</td>
+		</tbody>
+
+		<tbody>
+			<td>Par</td>
+			{{course.name}}
+
+			{{#each course.holes}}
+				<td>{{par}}</td>
+			{{/each}}
+
+			<td>{{course.out}}</td>
+
+			<td>{{course.in}}</td>
+			<td>{{course.tot}}</td>
+		</tbody>
+
+		<tbody>
+			<td>Mike</td>
+			<td><input id="score_1" class="score" type="text"/></td>
+			<td><input id="score_2" class="score" type="text"/></td>
+			<td><input id="score_3" class="score" type="text"/></td>
+			<td><input id="score_4" class="score" type="text"/></td>
+			<td><input id="score_5" class="score" type="text"/></td>
+			<td><input id="score_6" class="score" type="text"/></td>
+			<td><input id="score_7" class="score" type="text"/></td>
+			<td><input id="score_8" class="score" type="text"/></td>
+			<td><input id="score_9" class="score" type="text"/></td>
+			<td>34</td>
+
+			<td><input id="score_10" class="score" type="text"/></td>
+			<td><input id="score_11" class="score" type="text"/></td>
+			<td><input id="score_12" class="score" type="text"/></td>
+			<td><input id="score_13" class="score" type="text"/></td>
+			<td><input id="score_14" class="score" type="text"/></td>
+			<td><input id="score_15" class="score" type="text"/></td>
+			<td><input id="score_16" class="score" type="text"/></td>
+			<td><input id="score_17" class="score" type="text"/></td>
+			<td><input id="score_18" class="score" type="text"/></td>
+			<td>36</td>
+
+			<td>70</td>
+		</tbody>
+	</table>
+	<input type="submit" value="submit" class="submit" id="sub_score"/>
+
+</template>

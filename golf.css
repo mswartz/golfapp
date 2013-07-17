@@ -1,0 +1,14 @@
+/* CSS declarations go here */
+
+.scorecard {
+	border-collapse: collapse;
+}
+
+.scorecard th, .scorecard td {
+	padding: 5px;
+	border: 1px solid #CCC;
+}
+
+.scorecard input {
+	width: 30px;
+}

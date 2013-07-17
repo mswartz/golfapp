@@ -17,7 +17,7 @@ Just run this in terminal:
 #### 2. Clone this repo somewhere   
 
 #### 3. Cd into it and run Meteor   
-`$ cd golfapp/`
+`$ cd golfapp/`   
 `$ meteor`
 
 #### 4. Look at it in your browser   

@@ -2,14 +2,5 @@
 
 name: "Mike Swartz",
 
-games: [{ "id" : 1 }],
-
 stats: [{ "low_round" : 86  },
 		{ "high_round" : 110 }],
-
-age: 34,
-
-friends: [{ "id" : 86  },
-		  { "id" : 110 }],
-		  
-avatar: 70

@@ -38,25 +38,29 @@ if (Meteor.isClient) {
     }
   });
 
-  Template.courses.events({
-    'click input.course_submitcourse' : function() {
-      var name=$('#course_name').val();
-      var holes = [];
-      var total = $("add_total");
-      for(var i=1; i<19; i++){
-        holes[i] = { 
-          "number" : i,
-          "par" : parseInt((document).getElementById('add_hole_'+i).value.trim())
-        };
-      }
-      var new_course = {
-        "name" : name,
-        "holes" : holes,
-        "total" : total
+Template.courses.events({
+  'click input.course_submitcourse' : function() {
+    var name=$('#course_name').val();
+    var holes = [];
+    var total = $("#add_total");
+    console.log(total, total.val());
+    for(var i=0; i<18; i++){
+      holes[i] = { 
+        "number" : i+1,
+        "par" : parseInt($('#add_hole_'+(i+1)).val())
       };
-      Courses.insert(new_course);
     }
-  })
+    var new_course = {
+      "name" : name,
+      "holes" : holes,
+      "tot" : total.val()
+    };
+    console.log(new_course);
+    Courses.insert(new_course, function(err, id){
+      console.log(err, id);
+    });
+  }
+})
 
 
 //
@@ -164,6 +168,7 @@ if (Meteor.isClient) {
     },
   })
 }
+
 
 if (Meteor.isServer) {
   Meteor.startup(function () {

@@ -40,13 +40,68 @@
 <template name ="allgames">
 	<h1>All Games</h1>
 	{{#each games}}
-		<h2>{{course}}</h2>
+		{{#each course_name}}
+		<h2></h2>
+		{{/each}}
 	{{/each}}
 </template>
 
 
 <template name ="courses">
 	<h1>Courses</h1>
+
+	<input type="text" value="course name" id="course_name"/>
+	<table class="new_course">
+		<thead>
+			<th>Hole</th>
+			<th>1</th>
+			<th>2</th>
+			<th>3</th>
+			<th>4</th>
+			<th>5</th>
+			<th>6</th>
+			<th>7</th>
+			<th>8</th>
+			<th>9</th>
+			<th>10</th>
+			<th>11</th>
+			<th>12</th>
+			<th>13</th>
+			<th>14</th>
+			<th>15</th>
+			<th>16</th>
+			<th>17</th>
+			<th>18</th>
+			<th>Tot</th>
+		</thead>
+
+		<tbody>
+			<td>Par</td>
+			<td><input type="text" id="add_hole_1" class="course_addhole"/></td>
+			<td><input type="text" id="add_hole_2" class="course_addhole"/></td>
+			<td><input type="text" id="add_hole_3" class="course_addhole"/></td>
+			<td><input type="text" id="add_hole_4" class="course_addhole"/></td>
+			<td><input type="text" id="add_hole_5" class="course_addhole"/></td>
+			<td><input type="text" id="add_hole_6" class="course_addhole"/></td>
+			<td><input type="text" id="add_hole_7" class="course_addhole"/></td>
+			<td><input type="text" id="add_hole_8" class="course_addhole"/></td>
+			<td><input type="text" id="add_hole_9" class="course_addhole"/></td>
+			<td><input type="text" id="add_hole_10" class="course_addhole"/></td>
+			<td><input type="text" id="add_hole_11" class="course_addhole"/></td>
+			<td><input type="text" id="add_hole_12" class="course_addhole"/></td>
+			<td><input type="text" id="add_hole_13" class="course_addhole"/></td>
+			<td><input type="text" id="add_hole_14" class="course_addhole"/></td>
+			<td><input type="text" id="add_hole_15" class="course_addhole"/></td>
+			<td><input type="text" id="add_hole_16" class="course_addhole"/></td>
+			<td><input type="text" id="add_hole_17" class="course_addhole"/></td>
+			<td><input type="text" id="add_hole_18" class="course_addhole"/></td>
+			<td><input type="text" id="add_total" class="course_addhole"/></td>
+		</tbody>
+	</table>
+
+	<input type="submit" value="add course" class="course_submitcourse"/>
+
+
 	{{#each course}}
 		<h2>{{name}}</h2>
 			<table>

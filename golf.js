@@ -4,9 +4,6 @@ Courses = new Meteor.Collection("courses");
 Games = new Meteor.Collection("games");
 Stats = new Meteor.Collection("stats");
 
-Courses.allow({  insert: function () { return true;  },
-                 remove: function () { return true;  },
-                 update: function () { return true;  }   });
 
 if (Meteor.isClient) {
 
@@ -41,6 +38,26 @@ if (Meteor.isClient) {
     }
   });
 
+  Template.courses.events({
+    'click input.course_submitcourse' : function() {
+      var name=$('#course_name').val();
+      var holes = [];
+      var total = $("add_total");
+      for(var i=1; i<19; i++){
+        holes[i] = { 
+          "number" : i,
+          "par" : parseInt((document).getElementById('add_hole_'+i).value.trim())
+        };
+      }
+      var new_course = {
+        "name" : name,
+        "holes" : holes,
+        "total" : total
+      };
+      Courses.insert(new_course);
+    }
+  })
+
 
 //
 // All Games view
@@ -49,10 +66,15 @@ if (Meteor.isClient) {
     games : function(){
       var raw_games = Games.find({}).fetch();
       var games = {};
-      
       // var player = Players.find({}, {_id : games.players[0].player_id});
+      var raw_course = Courses.find({}, {_id: raw_games[0].course}).fetch();
+
       console.log(raw_games);
       return raw_games;
+    },
+    name : function(cid){
+      var course = Courses.find({}, {_id: cid});
+      return course[0].name;
     }
   });
 

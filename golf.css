@@ -9,6 +9,6 @@
 	border: 1px solid #CCC;
 }
 
-.scorecard input {
+.scorecard input, .new_course input {
 	width: 30px;
 }

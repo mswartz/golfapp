@@ -68,12 +68,14 @@ Template.courses.events({
 //
   Template.allgames.helpers({
     games : function(){
-      var raw_games = Games.find({}).fetch();
-      var games = {};
+      var raw_games = Games.find().fetch();
       // var player = Players.find({}, {_id : games.players[0].player_id});
-      var raw_course = Courses.find({}, {_id: raw_games[0].course}).fetch();
+      var games = [];
 
-      console.log(raw_games);
+      for(var i=0;i<raw_games.length;i++){
+        console.log(raw_games[i]);
+      }
+
       return raw_games;
     },
     name : function(cid){
@@ -111,29 +113,31 @@ Template.courses.events({
       var net_score = {};
       var total = 0;
       for(var i=1; i<19; i++){
-        net_score[i] = parseInt((document).getElementById('score_'+i).value.trim());
-        // console.log(net_score[i]);
+        net_score[i] = parseInt($('#score_'+i).val(), 10);
+        console.log(net_score[i]);
         total = total + net_score[i];
       }
       var course = Session.get("course_selected");
-      var players = {};
+      var players = [];
 
       for(var i=0; i<$(".game_player").length; i++){
-        players = {
+        players[i] = {
           "player_id" : $(".game_player").data("id"),
           "score" : net_score,
-          "total" : total }
+          "total" : total 
+        }
       }
 
       console.log(players);
 
       Games.insert({
         "course" : course[0]._id,
-        "players" : players,
+        "players" : players
       });
     },
+
     'click input.course_select' : function() {
-      var course = Courses.find({}, {_id : "jsGLppubCPdRpyt8X"}).fetch();
+      var course = Courses.find({_id : "jsGLppubCPdRpyt8X"}).fetch();
       Session.set("course_selected", course);
       console.log(Session.get("course_selected"));
     }

@@ -30,20 +30,28 @@
 	<h1>Players</h1>
 	{{#each players}}
 		<h2>{{name}}</h2>
+	
 		{{#each stats}}
 			{{low_round}}
 			{{high_round}}
 		{{/each}}
+
 	{{/each}}
 </template>
 
 <template name ="allgames">
 	<h1>All Games</h1>
+	<ol>
 	{{#each games}}
-		{{#each course_name}}
-		<h2></h2>
-		{{/each}}
+		<li>
+			{{course}}
+			{{#each players}}
+				{{score}}
+				{{total}}
+			{{/each}}
+		</li>
 	{{/each}}
+	</ol>
 </template>
 
 

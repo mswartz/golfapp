@@ -41,21 +41,30 @@ if (Meteor.isClient) {
 Template.courses.events({
   'click input.course_submitcourse' : function() {
     var name=$('#course_name').val();
+    var tees = [];
     var holes = [];
-    var total = $("#add_total");
-    console.log(total, total.val());
-    for(var i=0; i<18; i++){
-      holes[i] = { 
-        "number" : i+1,
-        "par" : parseInt($('#add_hole_'+(i+1)).val())
+
+    for(var x=0;x<$(".course_input tr").length;x++){
+      var color = $("#tee_name_"+x);
+      for(var i=0; i<18; i++){
+        var par = parseInt($('#add_hole_'+x+"_"+(i+1)).val());
+        holes[i] = { 
+          "number" : i+1,
+          "par" : par
+        };
       };
-    }
+      var total = $("#add_total_"+x).val();
+      tees[x]={"color":color, "holes":holes, "total" : total};
+    };
+    console.log(tees);
+
     var new_course = {
       "name" : name,
-      "holes" : holes,
-      "tot" : total.val()
-    };
+      "tees" : tees
+     };
+
     console.log(new_course);
+
     Courses.insert(new_course, function(err, id){
       console.log(err, id);
     });
@@ -106,14 +115,14 @@ Template.courses.events({
     course : function(){
       // return Courses.find({}).fetch()[0];
       var course = Session.get("course_selected");
-      return course[0];
+      return course;
     }
   });
 
 //Set a session var when the newgame is created. 
   Template.newgame.created = function(){
     // console.log("created");
-    var course = Courses.find({}, {_id : "jsGLppubCPdRpyt8X"}).fetch();
+    var course = Courses.findOne();
     Session.set("course_selected", course);
   }
 
@@ -141,13 +150,13 @@ Template.courses.events({
       console.log(players);
 
       Games.insert({
-        "course" : course[0]._id,
+        "course" : course._id,
         "players" : players
       });
     },
 
     'click input.course_select' : function() {
-      var course = Courses.find({_id : "jsGLppubCPdRpyt8X"}).fetch();
+      var course = Courses.findOne();
       Session.set("course_selected", course);
       console.log(Session.get("course_selected"));
     }

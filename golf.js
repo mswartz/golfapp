@@ -59,6 +59,9 @@ Template.courses.events({
     Courses.insert(new_course, function(err, id){
       console.log(err, id);
     });
+  },
+  'click input.delete' : function(){
+    Courses.remove(this._id);
   }
 })
 

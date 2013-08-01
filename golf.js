@@ -83,6 +83,13 @@ Template.courses.events({
       return course[0].name;
     }
   });
+  Template.allgames.events({
+    'click input.delete' : function(){
+      console.log(this._id);
+
+      Games.remove(this._id);
+    }
+  });
 
 
 //

@@ -2,7 +2,9 @@
 players: [
   {
     "name": "Mike Swartz",
+    "initials": "MS",
     "high_rnd": 102,
-    "low_rnd": 84
+    "low_rnd": 84,
+    "handicap": 11
   }
 ]

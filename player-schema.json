@@ -1,6 +1,0 @@
-// Course info schema
-
-name: "Mike Swartz",
-
-stats: [{ "low_round" : 86  },
-		{ "high_round" : 110 }],

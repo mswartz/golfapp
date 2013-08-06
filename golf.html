@@ -28,14 +28,16 @@
 
 <template name ="player">
 	<h1>Players</h1>
+
+	<input type="text" placeholder="Player Name" id="player_name"/>
+	<input type="submit" value="Add Player" class="player_submitplayer"/>
+
 	{{#each players}}
 		<h2>{{name}}</h2>
-	
-		{{#each stats}}
+		<!-- {{#each stats}}
 			{{low_round}}
 			{{high_round}}
-		{{/each}}
-
+		{{/each}} -->
 	{{/each}}
 </template>
 

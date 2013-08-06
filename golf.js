@@ -28,6 +28,26 @@ if (Meteor.isClient) {
     }
   });
 
+Template.player.events({
+  'click input.player_submitplayer' : function() {
+    
+    var name= $('#player_name').val();
+
+    var new_player = {
+      "name" : name
+     };
+
+    console.log(new_player);
+
+    Players.insert(new_player, function(err, id){
+      console.log(err, id);
+    });
+  },
+  'click input.player_deleteplayer' : function(){
+    Courses.remove(this._id);
+  }
+});
+
 //
 //All courses view
 //
@@ -72,7 +92,7 @@ Template.courses.events({
   'click input.delete' : function(){
     Courses.remove(this._id);
   }
-})
+});
 
 
 //

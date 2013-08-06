@@ -45,7 +45,7 @@ Template.courses.events({
     var holes = [];
 
     for(var x=0;x<$(".course_input tr").length;x++){
-      var color = $("#tee_name_"+x);
+      var color = $("#tee_name_"+x).val();
       for(var i=0; i<18; i++){
         var par = parseInt($('#add_hole_'+x+"_"+(i+1)).val());
         holes[i] = { 

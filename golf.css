@@ -9,6 +9,8 @@
 	border: 1px solid #CCC;
 }
 
+th { text-align: left; }
+
 .scorecard input, .new_course input {
-	width: 30px;
+	width: 50px;
 }

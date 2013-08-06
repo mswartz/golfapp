@@ -5,10 +5,10 @@ courses: [
 		"tees": [
 			{
 				"color": "Blue",
-				"par": 34,
-				"total": 5961,
-				"out": 2949,
-				"in": 3012,
+				"par": 70,
+				"yards": 5961,
+				"out": [{"yards": 2949, "par": 34}],
+				"in": [{"yards": 3012, "par": 36}],
 				"holes": [
 					{"par":4, "yards":386, "handicap":7},
 					{"par":4, "yards":317, "handicap":13},

@@ -58,35 +58,32 @@ function gatherValues(schema, array) {
   });
 
 Template.courses.events({
-  'click input.course_submitcourse' : function() {
-    var name=$('#course_name').val();
+  'click input.newcourse_submitcourse' : function() {
+
+    var tee_count = $('.newcourse_tee').length;
+    var hole_count = $('.newcourse_tee').find('.hole_par').length;
+
+    var newcourse = gatherValues('newcourse',['name']);
+
     var tees = [];
-    var holes = [];
+    for (var x = 0; x < tee_count; x++) {
+      var holes = [];
+      for (var i = 0; i < hole_count; i++ ) {
+        var hole = gatherValues('newcourse_tee_'+x+'_hole_'+i, ['par', 'yards', 'handicap']);
+        holes.push(hole);
+      }
+      var tee = gatherValues('newcourse_tee_'+x, ["color", "par", "yards"]);
+      var in_data = gatherValues('newcourse_tee_'+x+'_in',['yards', 'par']);
+      var out_data = gatherValues('newcourse_tee_'+x+'_out',['yards', 'par']);
+      tee['holes'] = holes;
+      tee['in'] = in_data;
+      tee['out'] = out_data;
+      tees.push(tee);
+    }
 
-    for(var x=0;x<$(".course_input tr").length;x++){
-      var color = $("#tee_name_"+x).val();
-      for(var i=0; i<18; i++){
-        var par = parseInt($('#add_hole_'+x+"_"+(i+1)).val());
-        holes[i] = { 
-          "number" : i+1,
-          "par" : par
-        };
-      };
-      var total = $("#add_total_"+x).val();
-      tees[x]={"color":color, "holes":holes, "total" : total};
-    };
-    console.log(tees);
-
-    var new_course = {
-      "name" : name,
-      "tees" : tees
-     };
-
-    console.log(new_course);
-
-    Courses.insert(new_course, function(err, id){
-      console.log(err, id);
-    });
+    newcourse['tees'] = tees;
+    console.log('Course', newcourse);
+    Courses.insert(newcourse);
   },
   'click input.delete' : function(){
     Courses.remove(this._id);

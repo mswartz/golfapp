@@ -29,15 +29,18 @@
 <template name ="player">
 	<h1>Players</h1>
 
-	<input type="text" placeholder="Player Name" id="player_name"/>
-	<input type="submit" value="Add Player" class="player_submitplayer"/>
+	<input type="text" placeholder="Player Name" id="newplayer_name"/>
+	<input type="text" placeholder="Initials" id="newplayer_initials"/>
+	<input type="text" placeholder="High Round" id="newplayer_high_rnd"/>
+	<input type="text" placeholder="Low Round" id="newplayer_low_rnd"/>
+	<input type="text" placeholder="Handicap" id="newplayer_handicap"/>
+	<input type="submit" value="Add Player" class="newplayer_submitplayer"/>
+
 
 	{{#each players}}
-		<h2>{{name}}</h2>
-		<!-- {{#each stats}}
-			{{low_round}}
-			{{high_round}}
-		{{/each}} -->
+		<h2>{{name}} <em>({{initials}})</em></h2>
+		<p>{{high_rnd}}, {{low_rnd}}, {{handicap}}</p>
+		<input type="submit" class="player_deleteplayer" data-id="{{_id}}" value="Delete Player"/>
 	{{/each}}
 </template>
 

@@ -29,24 +29,23 @@ if (Meteor.isClient) {
   });
 
 Template.player.events({
-  'click input.player_submitplayer' : function() {
-    
-    var name= $('#player_name').val();
-
-    var new_player = {
-      "name" : name
-     };
-
-    console.log(new_player);
-
-    Players.insert(new_player, function(err, id){
-      console.log(err, id);
-    });
+  'click input.newplayer_submitplayer' : function() {
+    var newplayer = gatherValues("newplayer", ["name", "initials", "high_rnd", "low_rnd", "handicap"]);
+    Players.insert(newplayer);
   },
   'click input.player_deleteplayer' : function(){
-    Courses.remove(this._id);
+    Players.remove(this._id);
   }
 });
+
+function gatherValues(schema, array) {
+  var result = {};
+  for ( var i = 0; i < array.length; i++) {
+    var value = $('#'+schema+"_"+array[i]).val();
+    result[array[i]] = value;
+  }
+  return result;
+}
 
 //
 //All courses view

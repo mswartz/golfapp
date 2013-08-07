@@ -5,6 +5,7 @@ players: [
     "initials": "MS",
     "high_rnd": 102,
     "low_rnd": 84,
+    "avg_rnd": 92.5,
     "handicap": 11
   }
 ]

@@ -58,11 +58,18 @@ function gatherValues(schema, array) {
   });
 
 Template.courses.events({
+  'click input.newcourse_newtee' : function(){
+    var firstTee = $('#newcourse_tee_0').clone();
+    $('#newcourse').append(firstTee);
+  },
+  'click input.newcourse_removetee' : function(e){
+    var thisTee = $(e.target).closest('.newcourse_tee');
+    thisTee.remove();
+  },
   'click input.newcourse_submitcourse' : function() {
 
     var tee_count = $('.newcourse_tee').length;
     var hole_count = $('.newcourse_tee').find('.hole_par').length;
-
     var newcourse = gatherValues('newcourse',['name']);
 
     var tees = [];
@@ -74,7 +81,7 @@ Template.courses.events({
       }
       var tee = gatherValues('newcourse_tee_'+x, ["color", "par", "yards"]);
       var in_data = gatherValues('newcourse_tee_'+x+'_in',['yards', 'par']);
-      var out_data = gatherValues('newcourse_tee_'+x+'_out',['yards', 'par']);
+      var out_data = gatherValues('newcourse_tee_'+x+'_ out',['yards', 'par']);
       tee['holes'] = holes;
       tee['in'] = in_data;
       tee['out'] = out_data;

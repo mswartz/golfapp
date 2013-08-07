@@ -62,9 +62,8 @@
 
 <template name ="courses">
 	<h1>Courses</h1>
-
 	<input type="text" placeholder="Enter course name" value="Franklin Park" id="newcourse_name"/>
-	<table class="new_course">
+	<table class="newcourse" id="newcourse">
 		<thead>
 			<th>Hole</th>
 			<th>1</th>
@@ -76,6 +75,7 @@
 			<th>7</th>
 			<th>8</th>
 			<th>9</th>
+			<th>Out</th>
 			<th>10</th>
 			<th>11</th>
 			<th>12</th>
@@ -85,11 +85,16 @@
 			<th>16</th>
 			<th>17</th>
 			<th>18</th>
+			<th>In</th>
 			<th>Total</th>
 		</thead>
-		<tbody class="newcourse_tee">
-			<tr>
-				<td><input value="Blue" type="text" id="newcourse_tee_0_color" class="tee_color"/></td>
+		<tbody class="newcourse_tee" id="newcourse_tee_0">
+			<tr class="tee_meta">
+				<td><input placeholder="Tee Color" type="text" id="newcourse_tee_0_color" class="tee_color"/></td>
+				<td colspan="5"><input type="submit" value="Remove Tee" class="newcourse_removetee"/></td>
+			</tr>
+			<tr class="tee_par">
+				<td>Par</td>
 				<td><input value="4" type="text" id="newcourse_tee_0_hole_0_par" class="hole_par"/></td>
 				<td><input value="4" type="text" id="newcourse_tee_0_hole_1_par" class="hole_par"/></td>
 				<td><input value="4" type="text" id="newcourse_tee_0_hole_2_par" class="hole_par"/></td>
@@ -100,6 +105,7 @@
 				<td><input value="3" type="text" id="newcourse_tee_0_hole_7_par" class="hole_par"/></td>
 				<td><input value="4" type="text" id="newcourse_tee_0_hole_8_par" class="hole_par"/></td>
 				<td><input value="4" type="text" id="newcourse_tee_0_hole_9_par" class="hole_par"/></td>
+				<td><input value="34" type="text" id="newcourse_tee_0_out_par" class="tee_out tee_out_par"/></td>
 				<td><input value="5" type="text" id="newcourse_tee_0_hole_10_par" class="hole_par"/></td>
 				<td><input value="4" type="text" id="newcourse_tee_0_hole_11_par" class="hole_par"/></td>
 				<td><input value="3" type="text" id="newcourse_tee_0_hole_12_par" class="hole_par"/></td>
@@ -108,31 +114,34 @@
 				<td><input value="4" type="text" id="newcourse_tee_0_hole_15_par" class="hole_par"/></td>
 				<td><input value="4" type="text" id="newcourse_tee_0_hole_16_par" class="hole_par"/></td>
 				<td><input value="5" type="text" id="newcourse_tee_0_hole_17_par" class="hole_par"/></td>
+				<td><input value="36" type="text" id="newcourse_tee_0_in_par" class="tee_in tee_in_par"/></td>
 				<td><input value="70" type="text" id="newcourse_tee_0_par" class="tee_par"/></td>
 			</tr>
-			<tr>
+			<tr class="tee_yards">
 				<td>Yards</td>
-				<td><input value="386" type="text" id="newcourse_tee_0_hole_0_yards" class="tee_yards"/></td>
-				<td><input value="317" type="text" id="newcourse_tee_0_hole_1_yards" class="tee_yards"/></td>
-				<td><input value="421" type="text" id="newcourse_tee_0_hole_2_yards" class="tee_yards"/></td>
-				<td><input value="189" type="text" id="newcourse_tee_0_hole_3_yards" class="tee_yards"/></td>
-				<td><input value="349" type="text" id="newcourse_tee_0_hole_4_yards" class="tee_yards"/></td>
-				<td><input value="380" type="text" id="newcourse_tee_0_hole_5_yards" class="tee_yards"/></td>
-				<td><input value="389" type="text" id="newcourse_tee_0_hole_6_yards" class="tee_yards"/></td>
-				<td><input value="178" type="text" id="newcourse_tee_0_hole_7_yards" class="tee_yards"/></td>
-				<td><input value="340" type="text" id="newcourse_tee_0_hole_8_yards" class="tee_yards"/></td>
-				<td><input value="337" type="text" id="newcourse_tee_0_hole_9_yards" class="tee_yards"/></td>
-				<td><input value="513" type="text" id="newcourse_tee_0_hole_10_yards" class="tee_yards"/></td>
-				<td><input value="404" type="text" id="newcourse_tee_0_hole_11_yards" class="tee_yards"/></td>
-				<td><input value="139" type="text" id="newcourse_tee_0_hole_12_yards" class="tee_yards"/></td>
-				<td><input value="358" type="text" id="newcourse_tee_0_hole_13_yards" class="tee_yards"/></td>
-				<td><input value="164" type="text" id="newcourse_tee_0_hole_14_yards" class="tee_yards"/></td>
-				<td><input value="337" type="text" id="newcourse_tee_0_hole_15_yards" class="tee_yards"/></td>
-				<td><input value="287" type="text" id="newcourse_tee_0_hole_16_yards" class="tee_yards"/></td>
-				<td><input value="473" type="text" id="newcourse_tee_0_hole_17_yards" class="tee_yards"/></td>
+				<td><input value="386" type="text" id="newcourse_tee_0_hole_0_yards" class="hole_yards"/></td>
+				<td><input value="317" type="text" id="newcourse_tee_0_hole_1_yards" class="hole_yards"/></td>
+				<td><input value="421" type="text" id="newcourse_tee_0_hole_2_yards" class="hole_yards"/></td>
+				<td><input value="189" type="text" id="newcourse_tee_0_hole_3_yards" class="hole_yards"/></td>
+				<td><input value="349" type="text" id="newcourse_tee_0_hole_4_yards" class="hole_yards"/></td>
+				<td><input value="380" type="text" id="newcourse_tee_0_hole_5_yards" class="hole_yards"/></td>
+				<td><input value="389" type="text" id="newcourse_tee_0_hole_6_yards" class="hole_yards"/></td>
+				<td><input value="178" type="text" id="newcourse_tee_0_hole_7_yards" class="hole_yards"/></td>
+				<td><input value="340" type="text" id="newcourse_tee_0_hole_8_yards" class="hole_yards"/></td>
+				<td><input value="337" type="text" id="newcourse_tee_0_hole_9_yards" class="hole_yards"/></td>
+				<td><input value="2949" type="text" id="newcourse_tee_0_out_yards" class="tee_out tee_out_yards"/></td>
+				<td><input value="513" type="text" id="newcourse_tee_0_hole_10_yards" class="hole_yards"/></td>
+				<td><input value="404" type="text" id="newcourse_tee_0_hole_11_yards" class="hole_yards"/></td>
+				<td><input value="139" type="text" id="newcourse_tee_0_hole_12_yards" class="hole_yards"/></td>
+				<td><input value="358" type="text" id="newcourse_tee_0_hole_13_yards" class="hole_yards"/></td>
+				<td><input value="164" type="text" id="newcourse_tee_0_hole_14_yards" class="hole_yards"/></td>
+				<td><input value="337" type="text" id="newcourse_tee_0_hole_15_yards" class="hole_yards"/></td>
+				<td><input value="287" type="text" id="newcourse_tee_0_hole_16_yards" class="hole_yards"/></td>
+				<td><input value="473" type="text" id="newcourse_tee_0_hole_17_yards" class="hole_yards"/></td>
+				<td><input value="3012" type="text" id="newcourse_tee_0_in_yards" class="tee_in tee_in_yards"/></td>
 				<td><input value="5961" type="text" id="newcourse_tee_0_yards" class="tee_yards"/></td>
 			</tr>
-			<tr>
+			<tr class="tee_handicap">
 				<td>Handicap</td>
 				<td><input value="7" type="text" id="newcourse_tee_0_hole_0_handicap" class="tee_handicap"/></td>
 				<td><input value="13" type="text" id="newcourse_tee_0_hole_1_handicap" class="tee_handicap"/></td>
@@ -144,6 +153,7 @@
 				<td><input value="17" type="text" id="newcourse_tee_0_hole_7_handicap" class="tee_handicap"/></td>
 				<td><input value="11" type="text" id="newcourse_tee_0_hole_8_handicap" class="tee_handicap"/></td>
 				<td><input value="8" type="text" id="newcourse_tee_0_hole_9_handicap" class="tee_handicap"/></td>
+				<td class="tee_out tee_out_handicap"></td>
 				<td><input value="4" type="text" id="newcourse_tee_0_hole_10_handicap" class="tee_handicap"/></td>
 				<td><input value="2" type="text" id="newcourse_tee_0_hole_11_handicap" class="tee_handicap"/></td>
 				<td><input value="18" type="text" id="newcourse_tee_0_hole_12_handicap" class="tee_handicap"/></td>
@@ -152,16 +162,13 @@
 				<td><input value="12" type="text" id="newcourse_tee_0_hole_15_handicap" class="tee_handicap"/></td>
 				<td><input value="14" type="text" id="newcourse_tee_0_hole_16_handicap" class="tee_handicap"/></td>
 				<td><input value="6" type="text" id="newcourse_tee_0_hole_17_handicap" class="tee_handicap"/></td>
-				<td></td>
-			</tr>
-			<tr>
-				<td>Out: Yards<input value="2949" type="text" id="newcourse_tee_0_out_yards"/></td>
-				<td>Out: Par<input value="34" type="text" id="newcourse_tee_0_out_par"/></td>
-				<td>In: Yards<input value="3012" type="text" id="newcourse_tee_0_in_yards"/></td>
-				<td>In: Par<input value="36" type="text" id="newcourse_tee_0_in_par"/></td>
+				<td class="tee_in tee_in_handicap"></td>
+				<td class="tee_handicap"></td>
 			</tr>
 		</tbody>
 	</table>
+
+	<input type="submit" value="Add Tee" class="newcourse_newtee"/>
 
 	<input type="submit" value="Add Course" class="newcourse_submitcourse"/>
 

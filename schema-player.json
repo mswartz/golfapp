@@ -7,6 +7,10 @@ players: [
     "high_rnd": 102,
     "low_rnd": 84,
     "avg_rnd": 92.5,
-    "handicap": 11
+    "handicap": 11,
+    "games": [
+      {"game_id": "3nn8349h43883", "total": 70},
+      {"game_id": "3nn8349h43883", "total": 72}
+    ]
   }
 ]

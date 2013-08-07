@@ -7,6 +7,8 @@ courses: [
 				"color": "Blue",
 				"par": 70,
 				"yards": 5961,
+				"course_slope": 113,
+				"course_rating": 74, 
 				"out": [{"yards": 2949, "par": 34}],
 				"in": [{"yards": 3012, "par": 36}],
 				"holes": [

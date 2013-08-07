@@ -1,0 +1,25 @@
+
+games: [
+  {
+    "course_id": "7jnjq3q3nkq39q38",
+    "tee_time": 1222394,
+    "submitted_date": 1223467,
+    "weather": "Partly sunny",
+    "notes": "Had a great time.",
+    "scorer_id": "7jnjq3q3nkq39q38",
+    "attest_id": "7jnjq3q3nkq39q38",
+    "players": [
+      { 
+        "player_id": "jq38jjf88n32jie2io",
+        "tee_name": "Blue",
+        "cart": false,
+        "handicap": 15,
+        "scores": [4, 4, 4, 3, 4, 4, 4, 3, 4, 4, 5, 4, 3, 4, 3, 4, 4, 5],
+        "in": 34,
+        "out": 36,
+        "total": 70,
+        "plus_minus": "E"
+      }
+    ]
+  }
+]

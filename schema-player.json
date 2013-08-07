@@ -2,6 +2,7 @@
 players: [
   {
     "name": "Mike Swartz",
+    "woman": false,
     "initials": "MS",
     "high_rnd": 102,
     "low_rnd": 84,

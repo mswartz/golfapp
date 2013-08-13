@@ -3,6 +3,7 @@
 </head>
 
 <body>
+
 	{{> mode}}
 		{{> ui}}
 		<div class="screen"></div>
@@ -62,6 +63,7 @@
 
 <template name ="courses">
 	<h1>Courses</h1>
+
 	<input type="text" placeholder="Enter course name" value="Franklin Park" id="newcourse_name"/>
 	<table class="newcourse" id="newcourse">
 		<thead>
@@ -214,10 +216,17 @@
 </template>
 
 <template name="newgame">
-	<h1>New Game</h1>
-	<input type="submit" class="course_select" id="course_select" value="set course"/>
+	
+	<h3>Select a course</h3>
+	<select class="course_select" id="course_select">
+		{{#each courses}}
+		<option value="{{name}}">{{name}}</option>
+		{{/each}}
+	</select>
 
-	<h3>{{course.name}}</h3>
+	<h1>New Game</h1>
+
+	<h3>{{course_selected.name}}</h3>
 	<table class="scorecard">
 		<thead>
 			<th>Hole</th>
@@ -244,10 +253,10 @@
 
 		<tbody>
 			<td>Par</td>
-			{{#each course.holes}}
+			{{#each course_selected.holes}}
 				<td>{{par}}</td>
 			{{/each}}
-			<td>{{course.tot}}</td>
+			<td>{{course_selected.tot}}</td>
 		</tbody>
 
 		<tbody>

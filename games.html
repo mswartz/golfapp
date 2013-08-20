@@ -1,0 +1,15 @@
+<template name ="games">
+	<h1>All Games</h1>
+	<ol>
+	{{#each games}}
+		<li>
+			{{course}}
+			{{#each players}}
+				{{score}}
+				{{total}}
+			{{/each}}
+		</li>
+		<input class="delete" type="submit" data-id="{{_id}}" value="delete" />
+	{{/each}}
+	</ol>
+</template>

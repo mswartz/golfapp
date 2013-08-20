@@ -1,0 +1,69 @@
+<template name="newgame">
+	
+	<h3>Select a course</h3>
+	<select class="course_select" id="course_select">
+		{{#each courses}}
+		<option value="{{name}}">{{name}}</option>
+		{{/each}}
+	</select>
+
+	<h1>New Game</h1>
+
+	<h3>{{course_selected.name}}</h3>
+	<table class="scorecard">
+		<thead>
+			<th>Hole</th>
+			<th>1</th>
+			<th>2</th>
+			<th>3</th>
+			<th>4</th>
+			<th>5</th>
+			<th>6</th>
+			<th>7</th>
+			<th>8</th>
+			<th>9</th>
+			<th>10</th>
+			<th>11</th>
+			<th>12</th>
+			<th>13</th>
+			<th>14</th>
+			<th>15</th>
+			<th>16</th>
+			<th>17</th>
+			<th>18</th>
+			<th>Tot</th>
+		</thead>
+
+		<tbody>
+			<td>Par</td>
+			{{#each course_selected.holes}}
+				<td>{{par}}</td>
+			{{/each}}
+			<td>{{course_selected.tot}}</td>
+		</tbody>
+
+		<tbody>
+			<td class="game_player" data-id="5pTL8uZLzxPfrcqMe">Mike</td>
+			<td><input id="score_1" class="score" type="text"/></td>
+			<td><input id="score_2" class="score" type="text"/></td>
+			<td><input id="score_3" class="score" type="text"/></td>
+			<td><input id="score_4" class="score" type="text"/></td>
+			<td><input id="score_5" class="score" type="text"/></td>
+			<td><input id="score_6" class="score" type="text"/></td>
+			<td><input id="score_7" class="score" type="text"/></td>
+			<td><input id="score_8" class="score" type="text"/></td>
+			<td><input id="score_9" class="score" type="text"/></td>
+			<td><input id="score_10" class="score" type="text"/></td>
+			<td><input id="score_11" class="score" type="text"/></td>
+			<td><input id="score_12" class="score" type="text"/></td>
+			<td><input id="score_13" class="score" type="text"/></td>
+			<td><input id="score_14" class="score" type="text"/></td>
+			<td><input id="score_15" class="score" type="text"/></td>
+			<td><input id="score_16" class="score" type="text"/></td>
+			<td><input id="score_17" class="score" type="text"/></td>
+			<td><input id="score_18" class="score" type="text"/></td>
+			<td>70</td>
+		</tbody>
+	</table>
+	<input type="submit" value="submit" class="submit" id="sub_score"/>
+</template>

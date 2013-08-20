@@ -7,3 +7,7 @@ autopublish
 insecure
 preserve-inputs
 backbone
+standard-app-packages
+HTML5-History-API
+page-js-ie-support
+router

@@ -41,10 +41,12 @@ Template.courses.events({
       }
       var tee = gatherValues('newcourse_tee_'+x, ["color", "par", "yards"]);
       var in_data = gatherValues('newcourse_tee_'+x+'_in',['yards', 'par']);
-      var out_data = gatherValues('newcourse_tee_'+x+'_ out',['yards', 'par']);
+      var out_data = gatherValues('newcourse_tee_'+x+'_out',['yards', 'par']);
+      var tot_data = gatherValues('newcourse_tee_'+x+'_tot',['yards', 'par']);
       tee['holes'] = holes;
       tee['in'] = in_data;
       tee['out'] = out_data;
+      tee['tot'] = tot_data;
       tees.push(tee);
     }
 
@@ -56,5 +58,14 @@ Template.courses.events({
     Courses.remove(this._id);
   }
 });
+
+function gatherValues(schema, array) {
+  var result = {};
+  for ( var i = 0; i < array.length; i++) {
+    var value = $('#'+schema+"_"+array[i]).val();
+    result[array[i]] = value;
+  }
+  return result;
+}
 
 }

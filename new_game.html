@@ -10,6 +10,7 @@
 	<h1>New Game</h1>
 
 	<h3>{{course_selected.name}}</h3>
+
 	<table class="scorecard">
 		<thead>
 			<th>Hole</th>
@@ -35,35 +36,38 @@
 		</thead>
 
 		<tbody>
-			<td>Par</td>
-			{{#each course_selected.holes}}
-				<td>{{par}}</td>
+			{{#each course_selected.tees}}
+				<tr>
+					<td>{{color}}</td>
+					{{#each holes}}
+						<td>{{par}}</td>td>
+					{{/each}}
+					<td>{{tot}}</td>
+				</tr>
 			{{/each}}
-			<td>{{course_selected.tot}}</td>
-		</tbody>
 
-		<tbody>
-			<td class="game_player" data-id="5pTL8uZLzxPfrcqMe">Mike</td>
-			<td><input id="score_1" class="score" type="text"/></td>
-			<td><input id="score_2" class="score" type="text"/></td>
-			<td><input id="score_3" class="score" type="text"/></td>
-			<td><input id="score_4" class="score" type="text"/></td>
-			<td><input id="score_5" class="score" type="text"/></td>
-			<td><input id="score_6" class="score" type="text"/></td>
-			<td><input id="score_7" class="score" type="text"/></td>
-			<td><input id="score_8" class="score" type="text"/></td>
-			<td><input id="score_9" class="score" type="text"/></td>
-			<td><input id="score_10" class="score" type="text"/></td>
-			<td><input id="score_11" class="score" type="text"/></td>
-			<td><input id="score_12" class="score" type="text"/></td>
-			<td><input id="score_13" class="score" type="text"/></td>
-			<td><input id="score_14" class="score" type="text"/></td>
-			<td><input id="score_15" class="score" type="text"/></td>
-			<td><input id="score_16" class="score" type="text"/></td>
-			<td><input id="score_17" class="score" type="text"/></td>
-			<td><input id="score_18" class="score" type="text"/></td>
-			<td>70</td>
-		</tbody>
+			<tr>
+				<td class="game_player" data-id="5pTL8uZLzxPfrcqMe">Mike</td>
+				<td><input id="score_1" class="score" type="text"/></td>
+				<td><input id="score_2" class="score" type="text"/></td>
+				<td><input id="score_3" class="score" type="text"/></td>
+				<td><input id="score_4" class="score" type="text"/></td>
+				<td><input id="score_5" class="score" type="text"/></td>
+				<td><input id="score_6" class="score" type="text"/></td>
+				<td><input id="score_7" class="score" type="text"/></td>
+				<td><input id="score_8" class="score" type="text"/></td>
+				<td><input id="score_9" class="score" type="text"/></td>
+				<td><input id="score_10" class="score" type="text"/></td>
+				<td><input id="score_11" class="score" type="text"/></td>
+				<td><input id="score_12" class="score" type="text"/></td>
+				<td><input id="score_13" class="score" type="text"/></td>
+				<td><input id="score_14" class="score" type="text"/></td>
+				<td><input id="score_15" class="score" type="text"/></td>
+				<td><input id="score_16" class="score" type="text"/></td>
+				<td><input id="score_17" class="score" type="text"/></td>
+				<td><input id="score_18" class="score" type="text"/></td>
+				<td>70</td>
+			</tr>
 	</table>
 	<input type="submit" value="submit" class="submit" id="sub_score"/>
 </template>

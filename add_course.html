@@ -1,0 +1,51 @@
+<template name ="add_course">
+	<h1>Courses</h1>
+
+	<input type="text" placeholder="Enter course name" value="Franklin Park" id="course_name"/>
+
+	<input type="submit" value="Add Course" id="add_course"/>
+
+	<table class="data_input">
+		{{#each tees}}
+			<tbody class="tee body_{{color}}">
+				<td><input type="text" id="{{color}}"/></td>
+				<tr>
+					<th>Hole</th>
+					{{#each holes}}
+						<th>{{num}}</th>
+					{{/each}}
+					<th>In</th>
+					<th>Out</th>
+					<th>Tot</th>
+				</tr>
+				<tr>
+					<td>Par</td>
+					{{#each holes}}
+						<td><input type="text" id="{{par}}"/></td>
+					{{/each}}
+					<td>In</td>
+					<td>Out</td>
+					<td>Par</td>
+				</tr>
+				<tr>
+					<td>Yards</td>
+					{{#each holes}}
+						<td><input type="text" id="{{hcp}}"/></td>
+					{{/each}}
+					<td>In</td>
+					<td>Out</td>
+					<td>Par</td>
+				</tr>
+				<tr>
+					<td>Hcp</td>
+					{{#each holes}}
+						<td><input type="text" id="{{hcp}}"/></td>
+					{{/each}}
+					<td>In</td>
+					<td>Out</td>
+					<td>Par</td>
+				</tr>
+			</tbody>
+		{{/each}}
+	</table>
+</template>

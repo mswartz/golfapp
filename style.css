@@ -11,8 +11,8 @@
 
 th { text-align: left; }
 
-.scorecard input, .newcourse input {
-	width: 50px;
+.data_input input, .add_course input {
+	width: 30px;
 }
 
 .newcourse_tee:nth-of-type(1) .newcourse_removetee {

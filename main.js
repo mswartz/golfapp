@@ -15,6 +15,7 @@ if (Meteor.isClient) {
   //Add Routers
   Meteor.Router.add({
     '/new': 'newgame',
+    '/add_course' : 'add_course',
     '/courses': 'courses',
     '/games': 'games',
     '/players': 'players',

@@ -23,10 +23,12 @@ Template.courses.events({
     var firstTee = $('#newcourse_tee_0').clone();
     $('#newcourse').append(firstTee);
   },
+
   'click input.newcourse_removetee' : function(e){
     var thisTee = $(e.target).closest('.newcourse_tee');
     thisTee.remove();
   },
+
   'click input.newcourse_submitcourse' : function() {
     var tee_count = $('.newcourse_tee').length;
     var hole_count = $('.newcourse_tee').find('.hole_par').length;
